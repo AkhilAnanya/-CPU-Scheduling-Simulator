@@ -1,0 +1,184 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.GroupLayout.Alignment;
+
+public class SchedulingGUI extends JFrame {
+   private String[] algorithms = new String[]{"FCFS", "Round Robin", "Shortest Job First", "Priority Scheduling"};
+   private String sourcePath = new String();
+   public static int NUM_OF_PROCESSES = 0;
+   static String selectedAlgo = new String();
+   private JButton jButton1;
+   private JButton jButton2;
+   private JComboBox<String> jComboBox1;
+   private JLabel jLabel1;
+   private JLabel jLabel2;
+   private JLabel jLabel3;
+   private JLabel jLabel4;
+   private JLabel jLabel5;
+   private JLabel jLabel6;
+   private JLabel jLabel7;
+   private JPanel jPanel1;
+   private JTextField jTextField1;
+   private JButton nextStep2;
+
+   public SchedulingGUI() {
+      this.initComponents();
+      this.jLabel7.setIcon(new ImageIcon("src\\main\\java\\dark-abstract-tech-background_53876-90630.jpg"));
+      this.setResizable(false);
+      this.setTitle("CPU Scheduling Simulator");
+      this.jComboBox1.setModel(new DefaultComboBoxModel(this.algorithms));
+      this.addWindowListener(new SchedulingGUI$WindowListener(this));
+      this.setLocationRelativeTo((Component)null);
+   }
+
+   private void initComponents() {
+      this.jPanel1 = new JPanel();
+      this.jLabel2 = new JLabel();
+      this.jComboBox1 = new JComboBox();
+      this.jLabel3 = new JLabel();
+      this.jButton1 = new JButton();
+      this.jButton2 = new JButton();
+      this.jLabel4 = new JLabel();
+      this.jLabel1 = new JLabel();
+      this.jLabel5 = new JLabel();
+      this.jTextField1 = new JTextField();
+      this.nextStep2 = new JButton();
+      this.jLabel6 = new JLabel();
+      this.jLabel7 = new JLabel();
+      this.setDefaultCloseOperation(3);
+      this.jPanel1.setBackground(new Color(0, 102, 102));
+      this.jPanel1.setLayout(new AbsoluteLayout());
+      this.jLabel2.setFont(new Font("Tahoma", 1, 18));
+      this.jLabel2.setForeground(new Color(255, 255, 255));
+      this.jLabel2.setText("# of Process:");
+      this.jPanel1.add(this.jLabel2, new AbsoluteConstraints(320, 290, 130, 30));
+      this.jComboBox1.setModel(new DefaultComboBoxModel(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+      this.jPanel1.add(this.jComboBox1, new AbsoluteConstraints(490, 190, 140, 30));
+      this.jLabel3.setFont(new Font("Tahoma", 1, 18));
+      this.jLabel3.setForeground(new Color(255, 255, 255));
+      this.jLabel3.setText("Algorithm:");
+      this.jPanel1.add(this.jLabel3, new AbsoluteConstraints(320, 190, 100, 30));
+      this.jButton1.setText("Browse");
+      this.jButton1.addActionListener(new SchedulingGUI$1(this));
+      this.jPanel1.add(this.jButton1, new AbsoluteConstraints(490, 240, 140, 30));
+      this.jButton2.setFont(new Font("Tahoma", 3, 12));
+      this.jButton2.setText("Team Info");
+      this.jButton2.addActionListener(new SchedulingGUI$2(this));
+      this.jPanel1.add(this.jButton2, new AbsoluteConstraints(0, 500, 100, 30));
+      this.jLabel4.setFont(new Font("Bookman Old Style", 1, 48));
+      this.jLabel4.setForeground(new Color(255, 255, 255));
+      this.jLabel4.setText("CPU Scheduling");
+      this.jPanel1.add(this.jLabel4, new AbsoluteConstraints(280, 10, 420, 80));
+      this.jLabel1.setFont(new Font("Bookman Old Style", 3, 18));
+      this.jLabel1.setForeground(new Color(255, 255, 255));
+      this.jLabel1.setText("Simulation");
+      this.jPanel1.add(this.jLabel1, new AbsoluteConstraints(410, 90, 120, -1));
+      this.jLabel5.setFont(new Font("Tahoma", 1, 18));
+      this.jLabel5.setForeground(new Color(255, 255, 255));
+      this.jLabel5.setText("Source:");
+      this.jPanel1.add(this.jLabel5, new AbsoluteConstraints(320, 240, 70, 30));
+      this.jTextField1.setText("0");
+      this.jPanel1.add(this.jTextField1, new AbsoluteConstraints(490, 290, 140, 30));
+      this.nextStep2.setFont(new Font("Tahoma", 1, 14));
+      this.nextStep2.setText("Start");
+      this.nextStep2.addActionListener(new SchedulingGUI$3(this));
+      this.jPanel1.add(this.nextStep2, new AbsoluteConstraints(410, 370, 130, 40));
+      this.jLabel6.setFont(new Font("Tahoma", 0, 12));
+      this.jLabel6.setForeground(new Color(255, 255, 255));
+      this.jLabel6.setText("(0 <= N <= 10)");
+      this.jPanel1.add(this.jLabel6, new AbsoluteConstraints(650, 290, 120, 30));
+      this.jLabel7.setIcon(new ImageIcon("D:\\Programming Files\\CPUSchedulingSimulation\\src\\main\\java\\dark-abstract-tech-background_53876-90630.jpg"));
+      this.jPanel1.add(this.jLabel7, new AbsoluteConstraints(0, 0, 960, 530));
+      GroupLayout var1 = new GroupLayout(this.getContentPane());
+      this.getContentPane().setLayout(var1);
+      var1.setHorizontalGroup(var1.createParallelGroup(Alignment.LEADING).addGroup(var1.createSequentialGroup().addComponent(this.jPanel1, -2, 957, -2).addGap(0, 0, 32767)));
+      var1.setVerticalGroup(var1.createParallelGroup(Alignment.LEADING).addGroup(var1.createSequentialGroup().addComponent(this.jPanel1, -2, 533, -2).addGap(0, 0, 32767)));
+      this.jPanel1.getAccessibleContext().setAccessibleName("");
+      this.pack();
+      this.setLocationRelativeTo((Component)null);
+   }
+
+   private void jButton1ActionPerformed(ActionEvent var1) {
+      JFileChooser var2 = new JFileChooser();
+      var2.showOpenDialog((Component)null);
+      File var3 = var2.getSelectedFile();
+      this.sourcePath = var3.getAbsolutePath();
+   }
+
+   private void jButton2ActionPerformed(ActionEvent var1) {
+      JOptionPane.showMessageDialog((Component)null, "Developers:\n\nMINAL HASAN,REG:12303079 ,Btech.CSE \n AKHIL R,REG:12306822, Btech.CSE ");
+   }
+
+   private void nextStep2ActionPerformed(ActionEvent var1) {
+      int var2 = Integer.parseInt(this.jTextField1.getText());
+      if (this.sourcePath.isEmpty()) {
+         JOptionPane.showMessageDialog((Component)null, "ERROR: Please input the source of computation");
+      } else if (var2 <= 0) {
+         JOptionPane.showMessageDialog((Component)null, "ERROR: Please input the appropriate number of processes");
+      } else {
+         selectedAlgo = this.jComboBox1.getSelectedItem().toString();
+         NUM_OF_PROCESSES = Integer.parseInt(this.jTextField1.getText());
+         Job[] var3 = new Job[NUM_OF_PROCESSES];
+
+         for(int var4 = 1; var4 <= NUM_OF_PROCESSES; ++var4) {
+            String var5 = "P" + var4;
+            long var6 = (long)(((new Random()).nextInt(9) + 1) * 300);
+            long var8 = (long)(((new Random()).nextInt(3) + 1) * 100);
+            long var10 = System.nanoTime();
+            Job var12 = new Job(var5, var6, var8, var10);
+            var3[var4 - 1] = var12;
+         }
+
+         CalcSimulation var13 = new CalcSimulation(var3, NUM_OF_PROCESSES, this.sourcePath, selectedAlgo);
+         var13.start();
+         this.dispose();
+      }
+
+   }
+
+   public static void main(String[] var0) {
+      try {
+         UIManager.LookAndFeelInfo[] var1 = UIManager.getInstalledLookAndFeels();
+         int var2 = var1.length;
+
+         for(int var3 = 0; var3 < var2; ++var3) {
+            UIManager.LookAndFeelInfo var4 = var1[var3];
+            if ("Nimbus".equals(var4.getName())) {
+               UIManager.setLookAndFeel(var4.getClassName());
+               break;
+            }
+         }
+      } catch (ClassNotFoundException var5) {
+         Logger.getLogger(SchedulingGUI.class.getName()).log(Level.SEVERE, (String)null, var5);
+      } catch (InstantiationException var6) {
+         Logger.getLogger(SchedulingGUI.class.getName()).log(Level.SEVERE, (String)null, var6);
+      } catch (IllegalAccessException var7) {
+         Logger.getLogger(SchedulingGUI.class.getName()).log(Level.SEVERE, (String)null, var7);
+      } catch (UnsupportedLookAndFeelException var8) {
+         Logger.getLogger(SchedulingGUI.class.getName()).log(Level.SEVERE, (String)null, var8);
+      }
+
+      EventQueue.invokeLater(new SchedulingGUI$4());
+   }
+}
