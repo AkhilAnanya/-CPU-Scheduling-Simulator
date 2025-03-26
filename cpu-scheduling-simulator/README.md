@@ -46,7 +46,7 @@ Different CPU scheduling algorithms have unique properties, and choosing the rig
 
 1. Clone the repository to your local machine using:
    ```bash
-   git clone minalhassan-CPU-Scheduling-Simulator
+   git clone https://github.com/minalhassan/-CPU-Scheduling-Simulator
    ```
    
 2. Navigate to the project directory:
