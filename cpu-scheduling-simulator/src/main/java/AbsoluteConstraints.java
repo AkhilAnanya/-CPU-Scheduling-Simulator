@@ -17,8 +17,13 @@
  * under the License.
  */
 
-
+// Imports the Dimension class from the java.awt package.
+// Dimension is used to encapsulate the width and height of a component, window, or screen area.
+// It's often used when setting preferred sizes for GUI components like panels or frames.
 import java.awt.Dimension;
+// Imports the Point class from the java.awt package.
+// Point represents a location in a two-dimensional (x, y) coordinate space.
+// Commonly used to define positions of components on the screen or within a container.
 import java.awt.Point;
 
 /** An object that encapsulates position and (optionally) size for
